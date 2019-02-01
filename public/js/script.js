@@ -1,5 +1,5 @@
 function updateData() {
-    $.getJSON("{{ asset('json/data.json') }}", function(e) {
+    $.getJSON("json/data.json", function(e) {
         if (null != tempData)
             for (var t = [], i = 0; i < e.length; i += 3) {
                 for (var n = e[i], r = e[i + 1], o = e[i + 2], a = !0, s = 0; s < tempData.length; s += 3)
@@ -5163,7 +5163,7 @@ DAT.Globe = function(e, t) {
                 fragmentShader: ["varying vec3 vNormal;", "void main() {", "float intensity = pow( 0.8 - dot( vNormal, vec3( 0, 0, 1.0 ) ), 12.0 );", "gl_FragColor = vec4( 1.0, 1.0, 1.0, 1.0 ) * intensity;", "}"].join("\n")
             }
         },
-        H = "{{ asset('images/') }}",
+        H = "images/",
         w = 0,
         M = {
             x: 0,

@@ -1,0 +1,39 @@
+input::-webkit-input-placeholder { /* WebKit browsers */
+    line-height: 1.5em;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    line-height: 1.5em;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    line-height: 1.5em;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    line-height: 1.5em;
+}
+
+::placeholder{
+    color: #D3CDCD;
+    font-size: 15px;
+}
+
+input{
+    border-radius: 50px;
+    font-family: "Sitka Text", sans-serif;
+}
+
+.button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-width: 150px;
+}
+
+.login-logo {
+    margin: 0 auto;
+    margin-bottom: 50px;
+    max-height: 100px;
+}
+
+.columns{
+    margin: 0px;
+}
+

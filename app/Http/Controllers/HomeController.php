@@ -8,7 +8,7 @@ namespace weloveso\Http\Controllers;
 class HomeController extends Controller
 {
 	
-	public function index(){
+	public function homePage(){
 		return view('home');
 	}
 }

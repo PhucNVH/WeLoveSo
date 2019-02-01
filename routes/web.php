@@ -15,9 +15,14 @@
  * Home
  */
 
-Route::get('/', [
-	'uses' => '\weloveso\Http\Controllers\HomeController@index',
+Route::get('/home', [
+	'uses' => '\weloveso\Http\Controllers\HomeController@homePage',
 	'as'   => 'home',
+]);
+
+Route::get('/', [
+	'uses' => '\weloveso\Http\Controllers\WelcomeController@index',
+	'as'   => 'welcome',
 ]);
 
 /**
@@ -27,5 +32,26 @@ Route::get('/', [
 Route::get('/signup', [
 	'uses' => '\weloveso\Http\Controllers\AuthController@getSignup',
 	'as'   => 'auth.signup',
+	// 'middleware'	=> ['guest'],
 ]);
 
+Route::post('/signup', [
+	'uses' => '\weloveso\Http\Controllers\AuthController@postSignup',
+	// 'middleware'	=> ['guest'],
+]);
+
+Route::get('/signin', [
+	'uses' => '\weloveso\Http\Controllers\AuthController@getSignin',
+	'as'   => 'auth.signin',
+	// 'middleware'	=> ['guest'],
+]);
+
+Route::post('/signin', [
+	'uses' => '\weloveso\Http\Controllers\AuthController@postSignin',
+	// 'middleware'	=> ['guest'],
+]);
+
+Route::get('/signout', [
+	'uses' => '\weloveso\Http\Controllers\AuthController@getSignout',
+	'as'   => 'auth.signout',
+]);
