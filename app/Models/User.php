@@ -51,4 +51,8 @@ class User extends Authenticatable
     public function getFirstNameOrUserName(){
         return $this->first_name ?: $this->username;
     }
+
+    public function getAvatarUrl(){
+        return "https://www.gravatar.com/avatar/{{ md5($this->username)}} ? d=mm&s=40";
+    }
 }

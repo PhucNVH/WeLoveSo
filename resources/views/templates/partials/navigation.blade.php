@@ -1,7 +1,7 @@
 <nav class = "navbar navbar-default" role = "navigation">
     <div class="container">
 	   <div class = "navbar-header">
-	    	<a class = "navbar-brand" href="#">Weloveso</a>
+	    	<a class = "navbar-brand" href="{{route('home')}}">Weloveso</a>
 	   </div>
 	   
        <div class = "collapse navbar-collapse">
@@ -10,7 +10,7 @@
 			     	<li><a href = "#">Bảng tin</a></li>
                     <li><a href = "#">Bạn bè</a></li>
 			    </ul>
-                <form class="navbar-form navbar-left" role="search" action = "#">
+                <form class="navbar-form navbar-left" role="search" action = "{{route('search.results')}}">
                     <div class = "form-group">
                         <input type="text" name="query" class="form-control" placeholder="">
                     </div>
