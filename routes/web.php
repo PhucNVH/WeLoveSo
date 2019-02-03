@@ -64,3 +64,23 @@ Route::get('/search', [
 	'uses' => '\weloveso\Http\Controllers\SearchController@getResults',
 	'as'   => 'search.results',
 ]);
+
+/**
+ * User Profile
+ */
+
+Route::get('/{username}' ,[
+	'uses' => '\weloveso\Http\Controllers\ProfileController@getProfile',
+	'as'   => 'profile.index',
+]);
+
+Route::get('/profile/edit',[
+	'uses' => '\weloveso\Http\Controllers\ProfileController@getEdit',
+	'as'   => 'profile.edit',
+	'middleware' => ['auth'],
+]);
+
+Route::post('/profile/edit',[
+	'uses' => '\weloveso\Http\Controllers\ProfileController@postEdit',
+	'middleware' => ['auth'],
+]);
