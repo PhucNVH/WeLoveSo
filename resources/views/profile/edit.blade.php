@@ -1,5 +1,6 @@
 @extends('templates.homepage')
 @section('content')
+<br><br><br><br>
 
 <div class="container">
     <h2>Cập nhật thông tin</h2>
@@ -19,7 +20,7 @@
         <div class="alert alert-info alert-dismissable">
           <a class="panel-close close" data-dismiss="alert">×</a> 
           <i class="fa fa-coffee"></i>
-          This is an <strong>.alert</strong>. Use this to show important messages to the user.
+              Bạn đừng bị bất ngờ vì password của bạn quá dài nka. Chúng mình mã hóa nó đó!
         </div>
         
         

@@ -56,7 +56,7 @@ class User extends Authenticatable
     }
 
     public function getAvatarUrl(){
-        return "https://www.gravatar.com/avatar/{{ md5($this->username)}} ? d=mm&s=40";
+        return "https://www.gravatar.com/avatar/{{ md5($this->username)}} ? d=mm&s=500";
     }
 
     public function friendsOfMine(){

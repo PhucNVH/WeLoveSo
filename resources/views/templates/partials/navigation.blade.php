@@ -1,41 +1,3 @@
-<!-- <nav class = "navbar navbar-default" role = "navigation">
-    <div class="container">
-	   <div class = "navbar-header">
-	    	<a class = "navbar-brand" href="{{route('home')}}">Weloveso</a>
-	   </div>
-	   
-       <div class = "collapse navbar-collapse">
-		    @if (Auth::check())
-		      	<ul class= "nav navbar-nav">
-			     	<li><a href = "{{ route('home') }}">Bảng tin</a></li>
-                    <li><a href = "{{ route('profile.friends', ['username' => Auth::user()->username])}}">Bạn bè</a></li>
-			    </ul>
-                <form class="navbar-form navbar-left" role="search" action = "{{route('search.results')}}">
-                    <div class = "form-group">
-                        <input type="text" name="query" class="form-control" placeholder="">
-                    </div>
-                    <button type="submit" class="btn btn-default">
-                        Tìm
-                    </button>
-                </form>
-            @endif
-
-                <ul class="nav navbar-nav navbar-right">
-                    @if(Auth::check())
-                        <li><a href="{{route('profile.index', ['username' => Auth::user()->username])}}">{{ Auth::user()->getNameOrUsername() }}</a></li>
-                        <li><a href="{{ route('profile.edit') }}">Cập nhật thông tin</a></li>
-                        <li><a href="{{ route('auth.signout') }}">Đăng xuất</a></li>
-                    @else
-                        <li><a href="{{ route('auth.signin') }}">Đăng nhập</a></li>
-                        <li><a href="{{ route('auth.signup') }}">Đăng kí</a></li>
-                    @endif
-                </ul>
-	   </div>
-    </div>
-</nav>
-
-// -->
-
 <m-topbar class="m-noshadow mdl-color--white mdl-color-text--grey-600">
     <div class="m-topbar--row">
 
@@ -43,22 +5,16 @@
         <!---->
         @if (Auth::check()) 
         <m-search--bar>
-            <div class="mdl-textfield mdl-js-textfield is-upgraded" data-upgraded=",MaterialTextfield"><i class="material-icons">search</i>
-                <input autocomplete="off" class="mdl-textfield__input ng-untouched ng-pristine ng-valid" id="search" name="q" type="text">
-                <label class="mdl-textfield__label" for="search"></label>
-                <m-search--bar-suggestions>
-                    <!---->
-                    <div class="m-search-bar-suggestions-list ng-star-inserted" hidden="">
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                        <!---->
-                    </div>
-                </m-search--bar-suggestions>
-            </div>
+            <form action="{{route('search.results')}}" role="search">
+                <div class="mdl-textfield mdl-js-textfield is-upgraded" data-upgraded=",MaterialTextfield"><i class="material-icons">search</i>
+                    <input autocomplete="off" class="mdl-textfield__input ng-untouched ng-pristine ng-valid" id="search" name="query" type="text">
+                    <label class="mdl-textfield__label" for="search"></label>
+                    <m-search--bar-suggestions>
+                        <div class="m-search-bar-suggestions-list ng-star-inserted" hidden="">
+                        </div>
+                    </m-search--bar-suggestions>
+                </div>
+            </form>
         </m-search--bar>
         <m-topbar--navigation>
             <nav class="m-topbar--navigation">
@@ -73,15 +29,17 @@
         <!---->
         <div class="m-topbar--icons ng-star-inserted">
             <!---->
+            <a class="m-topbar--navigation--item" href="{{route('profile.index', ['username' => Auth::user()->username])}}">{{ Auth::user()->getNameOrUsername() }}</a>
+
             <m-notifications--topbar-toggle>
-                <a class="m-notifications--topbar-toggle--icon">
-                    <m-tooltip icon="notifications">
-                        <div class="m-tooltip">
-                            <!----><i class="material-icons ng-star-inserted">notifications</i>
-                            <div class="m-tooltip--bubble" hidden=""> Notifications </div>
-                        </div>
-                    </m-tooltip>
-                </a>
+                    <a class="m-notifications--topbar-toggle--icon">
+                        <m-tooltip icon="notifications">
+                            <div class="m-tooltip">
+                                <!----><i class="material-icons ng-star-inserted">notifications</i>
+                                <div class="m-tooltip--bubble" hidden=""> Notifications </div>
+                            </div>
+                        </m-tooltip>
+                    </a>
                 <!---->
                 <!---->
                 <m-notifications--flyout hidden="" class="ng-star-inserted">

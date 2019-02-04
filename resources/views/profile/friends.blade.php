@@ -2,6 +2,7 @@
 
 @section('content')
 
+<br><br><br><br>
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
    <!--  <br><br><br><br>
