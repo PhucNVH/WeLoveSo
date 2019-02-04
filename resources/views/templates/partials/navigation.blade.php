@@ -23,7 +23,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if(Auth::check())
                         <li><a href="{{route('profile.index', ['username' => Auth::user()->username])}}">{{ Auth::user()->getNameOrUsername() }}</a></li>
-                        <li><a href="{{ route('profile.edit') }}">Trang cá nhân</a></li>
+                        <li><a href="{{ route('profile.edit') }}">Cập nhật thông tin</a></li>
                         <li><a href="{{ route('auth.signout') }}">Đăng xuất</a></li>
                     @else
                         <li><a href="{{ route('auth.signin') }}">Đăng nhập</a></li>

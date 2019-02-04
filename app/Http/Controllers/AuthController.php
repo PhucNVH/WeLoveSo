@@ -20,8 +20,8 @@ class AuthController extends Controller
 			'last_name'		=>	'required|max:255',
 			'first_name'		=>	'required|max:255',
 			'username'	=>	'required|unique:users|alpha_dash|max:20',	
-			'password'		=>	'required|min:2',
-			// 'password_again'		=>	'required|unique:users|min:2',
+			'password'		=>	'required|confirmed|min:2',
+			'password_confirmation'=>'sometimes|required_with:password',
 			'email'		=>	'required|unique:users|email|max:255',
 		]);
 
@@ -30,6 +30,7 @@ class AuthController extends Controller
 			'first_name' 	=>	$request->input('first_name'),
 			'username' 	=>	$request->input('username'),	
 			'password' 	=>	bcrypt($request->input('password')),
+			'password_confirmation' => bcrypt($request->input('password_confirmation')),
 			'email' 	=>	$request->input('email'),
 		]);
 
@@ -37,7 +38,6 @@ class AuthController extends Controller
 			->route('auth.signup')
 			->with('info', 'Tai khoản của bạn đã được khởi tạo, bây giờ bạn có thể đăng nhập ngay');
 	}
-
 
 	public function getSignin(){
 		return view('auth.signin');

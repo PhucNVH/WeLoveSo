@@ -17,6 +17,7 @@
               </span>
                 </div>
                 @if ($errors->has('last_name'))
+                    <br>
                     <span class = "help-block">{{ $errors->first('last_name')}}</span>
                 @endif
             </div>
@@ -57,17 +58,17 @@
                 @endif
             </div>
 
-           <!--  <div class="form-group{{ $errors->has('password_again') ? ' has-error' : ''}}">
+            <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : ''}}">
                 <div class="control has-icons-right">
-                    <input class="form-control" type="password" placeholder="Nhập lại mật khẩu" name="password_again">
+                    <input class="form-control" type="password" placeholder="Nhập lại mật khẩu" name="password_confirmation">
                     <span class="icon is-small is-right">
                 <i class="fa fa-check"></i>
               </span>
                 </div>
-                @if ($errors->has('password_again'))
-                    <span class = "help-block">{{ $errors->first('password_again')}}</span>
+                @if ($errors->has('password_confirmation'))
+                    <span class = "help-block">{{ $errors->first('password_confirmation')}}</span>
                 @endif
-            </div> -->
+            </div>
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : ''}}">
                 <div class="control has-icons-right">
