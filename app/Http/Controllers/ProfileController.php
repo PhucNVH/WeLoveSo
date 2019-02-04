@@ -69,5 +69,19 @@ class ProfileController extends Controller
  //        $user = Auth::user();
  //        return view('profile',compact('user',$user));
  //    }
+
+	/**
+	 *  Friends
+	 */
+
+	public function getFriends($username){
+		$user = User::where('username', $username)->first();
+
+		if(!$user){
+			abort(404);
+		}
+
+		return view('profile.friends')->with('user', $user);
+	}
 }
 	

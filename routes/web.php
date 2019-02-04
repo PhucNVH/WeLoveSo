@@ -84,3 +84,13 @@ Route::post('/profile/edit',[
 	'uses' => '\weloveso\Http\Controllers\ProfileController@postEdit',
 	'middleware' => ['auth'],
 ]);
+
+/**
+ * Friends
+ */
+
+Route::get('/{username}/friends',[
+	'uses' => '\weloveso\Http\Controllers\ProfileController@getFriends',
+	'as'   => 'profile.friends',
+	'middleware' => ['auth'],
+]);
