@@ -17,6 +17,17 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
+	<br><br><br><br>
+	@if (session('info'))
+		<div class="col-md-3">
+		</div>
+		<div class="col-md-6 personal-info">
+        	<div class="alert alert-info alert-dismissable">
+          			<i class="fa fa-coffee"></i>
+              		{{ session('info') }}
+        	</div>
+        </div>
+    @endif
 	@include('templates.partials.navigation')
 	<div class="container">
 		@yield('content')

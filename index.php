@@ -35,7 +35,7 @@ body, html {height: 100%}
     <p class="w3-large w3-center">good things take time</p>
   </div>
   <div class="w3-display-bottomleft w3-padding-large">
-    <a>LVC Fund's Group</a>
+    <a>LVC FUND'S GROUP</a>
   </div>
 </div>
 

@@ -1,8 +1,6 @@
 @extends('templates.homepage')
 
 @section('content')
-
-<br><br><br><br>
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
    <!--  <br><br><br><br>
@@ -23,7 +21,22 @@
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center"> {{ $user->getNameOrUsername() }} </h3>
+  <h3 class="w3-center"> {{ $user->getNameOrUsername() }} 
+  </h3>
+
+  <div align="right">
+      @if (Auth::user()->hasFriendRequestPending($user))
+        <p> Đang chờ {{ $user->getNameOrUsername() }} phản hồi lời mới kết bạn của bạn</p>
+      @elseif (Auth::user()->hasFriendRequestReceived($user))
+        <button type="" href="#" class="m-btn m-btn--action m-btn--login">
+                                <!---->Chấp nhận</button>
+      @elseif (Auth::user()->isFriendsWith($user))
+        <p>Bạn và {{ $user->getFirstNameOrUserName() }} đã là bạn bè.</p>
+      @else
+        <a href="{{ route('friend.add', ['username' => $user->username]) }}" class="m-btn m-btn--action m-btn--login">Kết bạn</a>
+      @endif
+  </div>
+
   <p class="w3-center"><em>I love cats</em></p>
   <p>We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa

@@ -1,7 +1,5 @@
 @extends('templates.homepage')
 @section('content')
-<br><br><br><br>
-
 <div class="container">
     <h2>Cập nhật thông tin</h2>
     <hr>

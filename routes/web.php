@@ -56,6 +56,12 @@ Route::get('/signout', [
 	'as'   => 'auth.signout',
 ]);
 
+Route::get('/authResults', [
+	'uses' => '\weloveso\Http\Controllers\AuthController@getAuthResults',
+	'as'   => 'auth.results',
+	// 'middleware'	=> ['guest'],
+]);
+
 /**
  *	Search
  */
@@ -90,7 +96,13 @@ Route::post('/profile/edit',[
  */
 
 Route::get('/{username}/friends',[
-	'uses' => '\weloveso\Http\Controllers\ProfileController@getFriends',
-	'as'   => 'profile.friends',
+	'uses' => '\weloveso\Http\Controllers\FriendController@getIndex',
+	'as'   => 'friend.index',
+	'middleware' => ['auth'],
+]);
+
+Route::get('/friends/add/{username}',[
+	'uses' => '\weloveso\Http\Controllers\FriendController@getAdd',
+	'as'   => 'friend.add',
 	'middleware' => ['auth'],
 ]);

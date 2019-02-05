@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
 	public function getSignup(){
-		return view('auth.signup');
+		return view('auth.signin');
 	}
 
 	public function postSignup(Request $request){
@@ -35,8 +35,8 @@ class AuthController extends Controller
 		]);
 
 		return redirect()
-			->route('auth.signup')
-			->with('info', 'Tai khoản của bạn đã được khởi tạo, bây giờ bạn có thể đăng nhập ngay');
+			->route('auth.results')
+			->with('info', 'Tài khoản của bạn đã được khởi tạo, bây giờ bạn có thể đăng nhập ngay');
 	}
 
 	public function getSignin(){
@@ -51,15 +51,19 @@ class AuthController extends Controller
 
 		if(!Auth::attempt($request->only(['username', 'password']), $request->has('remember')))
 		{
-			return redirect()->route('home')->with('info', 'Dang nhap chua thanh cong.');	
+			return redirect()->route('auth.results')->with('info', 'Đăng nhập chưa thành công.');	
 		}
 
-		return redirect()->route('home')->with('info', 'Ban da dang nhap thanh cong.');
+		return redirect()->route('home')->with('info', 'Bạn đã đăng nhập thành công.');
 	}
 
 	public function getSignout(){
 		Auth::logout();
 
-		return redirect()->route('home');
+		return redirect()->route('auth.signin');
+	}
+
+	public function getAuthResults(){
+		return view('auth.results');
 	}
 }

@@ -1,4 +1,4 @@
-@extends('templates.homepage')
+@extends('templates.auth')
 
 @section('content')
 <m-body class="mdl-color--grey-100">

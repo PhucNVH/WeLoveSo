@@ -1,8 +1,6 @@
 @extends('templates.homepage')
 
 @section('content')
-	<br><br><br><br>
-
 	<h6>Kết quả tìm kiếm về "{{ Request::input('query') }}"</h6>
 
 	@if(!$users->count())
