@@ -55,6 +55,10 @@ class User extends Authenticatable
         return $this->first_name ?: $this->username;
     }
 
+    public function statuses(){
+        return $this->hasMany('weloveso\Models\Status', 'user_id');
+    }
+
     public function getAvatarUrl(){
         return "https://www.gravatar.com/avatar/{{ md5($this->username)}} ? d=mm&s=500";
     }

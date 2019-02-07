@@ -106,3 +106,20 @@ Route::get('/friends/add/{username}',[
 	'as'   => 'friend.add',
 	'middleware' => ['auth'],
 ]);
+
+
+Route::get('/friends/accept/{username}',[
+	'uses' => '\weloveso\Http\Controllers\FriendController@getAccept',
+	'as'   => 'friend.accept',
+	'middleware' => ['auth'],
+]);
+
+/**
+ * Statuses
+ */
+
+Route::post('/status',[
+	'uses' => '\weloveso\Http\Controllers\StatusController@postStatus',
+	'as'   => 'status.post',
+	'middleware' => ['auth'],
+]);

@@ -10,9 +10,10 @@
 
 <body>
 <!-- @include('templates.partials.navigation') -->
+<m-body class="mdl-color--grey-100">
 <div class = "container">
     @yield('content')
 </div>
-
+</m-body>
 </body>
 </html>

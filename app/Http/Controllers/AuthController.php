@@ -54,7 +54,7 @@ class AuthController extends Controller
 			return redirect()->route('auth.results')->with('info', 'Đăng nhập chưa thành công.');	
 		}
 
-		return redirect()->route('home')->with('info', 'Bạn đã đăng nhập thành công.');
+		return redirect()->route('home');
 	}
 
 	public function getSignout(){

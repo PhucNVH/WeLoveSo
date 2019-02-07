@@ -16,8 +16,8 @@ class FriendController extends Controller
 		$requests = Auth::user()->friendRequests();
 		$user = User::where('username', $username)->first();
 
-		if(!$user){
-			abort(404);
+		if (!$user) {
+			return redirect()->route('home')->with('info', 'Tài khoản này chưa tồn tại');
 		}
 
 		return view('friends.index')
@@ -44,5 +44,21 @@ class FriendController extends Controller
 		Auth::user()->addFriend($user);
 
 		return redirect()->route('profile.index', ['username' => $username])->with('info', 'Đã gửi lời mời kết bạn.');
+	}
+
+	public function getAccept($username){
+		$user = User::where('username', $username)->first();
+
+		if (!$user) {
+			return redirect()->route('home')->with('info', 'Tài khoản này chưa tồn tại');
+		}
+
+		if (!Auth::user()->hasFriendRequestReceived($user)) {
+			return redirect()->route('home');
+		}
+
+		Auth::user()->acceptFriendRequest($user);
+
+		return redirect()->route('profile.index', ['username' => $username])->with('info', 'Lời mời kết bạn đã được chấp nhận.');
 	}
 }

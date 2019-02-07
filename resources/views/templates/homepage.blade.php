@@ -14,10 +14,11 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/b19f8744bf.css" media="all">
 	<link rel="stylesheet" href="https://cdn-assets.minds.com/front/dist/en/styles.2acb051213c9aaefab7a.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn-assets.minds.com/front/dist/en/styles.aea4070117f059339031.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 <body>
-	<br><br><br><br>
+<m-body class="mdl-color--grey-100">
 	@if (session('info'))
 		<div class="col-md-3">
 		</div>
@@ -32,5 +33,6 @@
 	<div class="container">
 		@yield('content')
 	</div>
+</m-body>
 </body>
 </html>

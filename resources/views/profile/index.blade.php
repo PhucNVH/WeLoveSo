@@ -21,15 +21,14 @@
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center"> {{ $user->getNameOrUsername() }} 
-  </h3>
+  <h4 class="w3-center"> {{ $user->getNameOrUsername() }} 
+  </h4>
 
   <div align="right">
       @if (Auth::user()->hasFriendRequestPending($user))
         <p> Đang chờ {{ $user->getNameOrUsername() }} phản hồi lời mới kết bạn của bạn</p>
       @elseif (Auth::user()->hasFriendRequestReceived($user))
-        <button type="" href="#" class="m-btn m-btn--action m-btn--login">
-                                <!---->Chấp nhận</button>
+        <a href="{{ route('friend.accept', ['username' => $user->username]) }}" class="m-btn m-btn--action m-btn--login">Chấp nhận</a>
       @elseif (Auth::user()->isFriendsWith($user))
         <p>Bạn và {{ $user->getFirstNameOrUserName() }} đã là bạn bè.</p>
       @else
@@ -42,9 +41,9 @@
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
     qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   <div class="w3-row">
-    <div class="w3-col m6 w3-center w3-padding-large">
-      <p><b><i class="fa fa-user w3-margin-right"></i>My Name</b></p><br>
+    <div class="w3-col m5 w3-center w3-padding-large">
       <img src="{{asset('images/try_hard.jpg')}}" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+      <p><b><i class="fa fa-user w3-margin-right"></i>{{ $user->getNameOrUsername() }} </b></p><br>
     </div>
 
     <!-- Hide this text on small devices -->

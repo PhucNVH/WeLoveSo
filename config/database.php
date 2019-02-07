@@ -43,10 +43,10 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
-            // 'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'id8384884_users'),
-            'username' => env('DB_USERNAME', 'id8384884_levuminhhuy'),
-            'password' => env('DB_PASSWORD', 'iamaman99'),
+            'port' => env('DB_PORT', '33060'),
+            'database' => env('DB_DATABASE', 'homestead'),
+            'username' => env('DB_USERNAME', 'homestead'),
+            'password' => env('DB_PASSWORD', 'secret'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -54,7 +54,6 @@ return [
             'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
-            'options'   => [PDO::ATTR_EMULATE_PREPARES => true],
         ],
 
         'pgsql' => [
