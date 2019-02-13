@@ -20,9 +20,9 @@
             <nav class="m-topbar--navigation">
                 <div><a class="m-topbar--navigation--item" routerlink="{{ route('home') }}" href="{{ route('home') }}" routerlinkactive="m-topbar--navigation--item-active" title="Timeline"><i class="material-icons">home</i><span class="m-topbar--navigation--text">Bảng tin</span></a></div>
                 <div><a class="m-topbar--navigation--item" routerlink="{{ route('friend.index', ['username' => Auth::user()->username])}}" routerlinkactive="m-topbar--navigation--item-active" title="Friends" href="{{ route('friend.index', ['username' => Auth::user()->username])}}"><i class="material-icons">people</i><span class="m-topbar--navigation--text">Bạn bè</span></a></div>
-                <div><a class="m-topbar--navigation--item" routerlink="" routerlinkactive="m-topbar--navigation--item-active" title="FindLove" href=""><i class="material-icons">place</i><span class="m-topbar--navigation--text">Nhìn xem</span></a></div>
+                <div><a class="m-topbar--navigation--item" routerlink="{{route('company.locations', ['username' => Auth::user()->username])}}" routerlinkactive="m-topbar--navigation--item-active" title="FindLove" href="{{route('company.locations', ['username' => Auth::user()->username])}}"><i class="material-icons">place</i><span class="m-topbar--navigation--text">Nhìn xem</span></a></div>
                 <div><a class="m-topbar--navigation--item" routerlink="" routerlinkactive="m-topbar--navigation--item-active" title="Blogs" href=""><i class="material-icons">subject</i><span class="m-topbar--navigation--text">Blogs</span></a></div>
-                <div><a class="m-topbar--navigation--item" routerlink="" routerlinkactive="m-topbar--navigation--item-active" title="Groups" href=""><i class="material-icons">group_work</i><span class="m-topbar--navigation--text"> Nhóm </span></a></div>
+                <a class="m-topbar--navigation--item" href=""><i class="material-icons">group_work</i><span class="m-topbar--navigation--text"> Nhóm </span></a>
             </nav>
         </m-topbar--navigation>
         <div class="m-layout--spacer"></div>

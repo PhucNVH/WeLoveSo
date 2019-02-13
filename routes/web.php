@@ -123,3 +123,19 @@ Route::post('/status',[
 	'as'   => 'status.post',
 	'middleware' => ['auth'],
 ]);
+
+Route::post('/status/{statusId}/reply',[
+	'uses' => '\weloveso\Http\Controllers\StatusController@postReply',
+	'as'   => 'status.reply',
+	'middleware' => ['auth'],
+]);
+
+/**
+ * Look At
+ */
+
+Route::get('/{username}/location/store',[
+	'uses' => '\weloveso\Http\Controllers\companyLocationsController@storeLocations',
+	'as'   => 'company.locations',
+	'middleware' => ['auth'],
+]);

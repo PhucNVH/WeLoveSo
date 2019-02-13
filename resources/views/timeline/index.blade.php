@@ -72,7 +72,7 @@
                                 <div class="m-boost-rotator-tools">
                                     <div class="m-layout--spacer"></div>
                                     <!---->
-                                    
+
                                     <ul class="m-boost-rotator-tabs ng-star-inserted">
                                         <li ><i class="material-icons mdl-color-text--blue-grey-400">chevron_left</i></li>
                                         <li ><i class="material-icons mdl-color-text--blue-grey-400">chevron_right</i></li>
@@ -92,18 +92,18 @@
 
                                     <div class="body">
                                         <a href="{{route('profile.index', ['username' => $status->user->username])}}"><strong> {{ $status->user->getNameOrUsername() }} </strong>
-                                          <div class="m-channel--badges-activity">
-                                            <ul class="m-channel--badges"><!----><!---->
+                                          <!-- <div class="m-channel--badges-activity">
+                                            <ul class="m-channel--badges">
                                               <li class="ng-star-inserted">
                                                   <m-tooltip icon="verified_user">
-                                                      <div class="m-tooltip"><!---->
+                                                      <div class="m-tooltip">
                                                           <i class="material-icons selected ng-star-inserted">verified_user</i>
                                                              <div class="m-tooltip--bubble" hidden=""> Verified </div>
                                                       </div>
                                                   </m-tooltip>
                                               </li>
                                             </ul>
-                                          </div>
+                                          </div> -->
                                         </a>
 
                                       <a class="permalink ng-star-inserted" href=""><span>{{ $status->created_at->diffForHumans() }}</span><!----><!----></a>
@@ -126,18 +126,18 @@
 
                                 </m-translate>
 
-                                <div class="tabs ng-star-inserted">
-                                    <minds-button><a class="mdl-color-text--blue-grey-500"><i class="material-icons">thumb_up</i><!----><span class="minds-counter ng-star-inserted">?</span></a></minds-button>
-                                    <!-- <minds-button><a class="mdl-color-text--blue-grey-500"><i class="material-icons">thumb_down</i><span class="minds-counter ng-star-inserted">?</span></a></minds-button> -->
-                                    <!---->
+                                <!-- <div class="tabs ng-star-inserted">
+                                    <minds-button><a class="mdl-color-text--blue-grey-500"><i class="material-icons">thumb_up</i><span class="minds-counter ng-star-inserted">?</span></a></minds-button>
+                                    <minds-button><a class="mdl-color-text--blue-grey-500"><i class="material-icons">thumb_down</i><span class="minds-counter ng-star-inserted">?</span></a></minds-button>
+                                    
                                     <m-wire-button class="ng-star-inserted">
                                         <button class="m-wire-button"><i class="ion-icon ion-flash"></i></button>
                                     </m-wire-button>
 
-                                    <minds-button><a class="mdl-color-text--blue-grey-500 selected"><i class="material-icons">chat_bubble</i><!----><span class="minds-counter ng-star-inserted">?</span></a></minds-button>
-                                    <!-- <minds-button><a class="mdl-color-text--blue-grey-500"><i class="material-icons">repeat</i><span class="minds-counter ng-star-inserted">?</span></a></minds-button> -->
-                                    <!---->
-                                </div>
+                                    <minds-button><a class="mdl-color-text--blue-grey-500 selected"><i class="material-icons">chat_bubble</i><span class="minds-counter ng-star-inserted">?</span></a></minds-button>
+                                    <minds-button><a class="mdl-color-text--blue-grey-500"><i class="material-icons">repeat</i><span class="minds-counter ng-star-inserted">?</span></a></minds-button>
+                                    
+                                </div> -->
                                 <!---->
                                 <div class="impressions-tag m-activity--metrics m-activity--metrics-wire ng-star-inserted">
                                     <div class="m-activity--metrics-inner m-border">
@@ -146,6 +146,39 @@
                                         <div class="m-activity--metrics-metric"><i class="material-icons">remove_red_eye</i><span>?</span></div>
                                     </div>
                                 </div>
+
+                                <minds-comments>
+                                    <div class="m-comment m-comment--poster minds-block ng-star-inserted">
+                                        <div class="minds-avatar">
+                                            <a href="{{route('profile.index', ['username' => $status->user->username])}}"><img class="mdl-shadow--2dp" src="{{ $status->user->getAvatarUrl() }}"></a>
+                                        </div>
+                                        <div class="minds-body">
+                                            <div class="m-comments-composer">
+                                                <form class="ng-untouched ng-pristine ng-valid" action="{{ route('status.reply', ['statusId' => $status->id])}}" method="post">
+                                                    <minds-textarea name="reply">
+                                                    </minds-textarea>
+                                                    <input type="submit" class="m-btn" value="Nhập">
+                                                    <input type="hidden" name="_token" value="{{ Session::token() }}">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </minds-comments>
+
+                                <!-- <form role = "form" action = "{{ route('status.reply', ['statusId' => $status->id]) }}" method="post">
+                                    <div class="form-group{{ $errors->has('reply-{$status->id}') ? ' has-error' : ''}}">
+                                        <textarea name="reply-{{ $status->id }}" class="m-comments-composer">
+                                          
+                                        </textarea>
+                                        @if ($errors->has("reply-{$status->id}"))
+                                            <span class="help-block">
+                                                {{$errors->first("reply-{$status->id}")}}
+                                            </span>
+                                        @endif
+                                    </div>
+                                    <input type="submit" class="m-btn" value="Nhập">
+                                    <input type="hidden" name="_token" value="{{ Session::token() }}">
+                                </form> -->
                                 <!---->
                                 <!---->
                                 <!---->
@@ -153,7 +186,7 @@
                                     <button class="mdl-button m-pin-button mdl-button--icon">
                                     </button>
                                     <button class="mdl-button m-translate-button mdl-button--icon ng-star-inserted"><i class="material-icons">public</i></button>
-                                    <m-post-menu>
+                                   <!--  <m-post-menu>
                                         <button class="mdl-button minds-more mdl-button--icon" data-vivaldi-spatnav-clickable="1"><i class="material-icons">keyboard_arrow_down</i></button>
                                         <ul class="minds-dropdown-menu" hidden="">
                                             <li class="mdl-menu__item ng-star-inserted" data-vivaldi-spatnav-clickable="1">Share</li>
@@ -163,7 +196,7 @@
                                             <li class="mdl-menu__item ng-star-inserted" data-vivaldi-spatnav-clickable="1">Block user</li>
                                         </ul>
                                         <div class="minds-bg-overlay" hidden=""></div>
-                                    </m-post-menu>
+                                    </m-post-menu> -->
                                 </div>
                                 <!---->
                             </minds-activity>
