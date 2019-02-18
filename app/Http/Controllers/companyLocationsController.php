@@ -27,7 +27,7 @@ class companyLocationsController extends Controller
 		// 	'address-latitude' => $request->input('address-latitude'),
 		// 	'address-longitude' => $request->input('address-longitude'),
 		// ]);
-
+		
 		return view('companies.createLocations')->with('user', $user);
 	}
 }

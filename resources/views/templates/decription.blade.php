@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
 
     <meta name="description" content="WeLoveSo">
+    <!-- <link rel="stylesheet" href="https://cdn-assets.minds.com/front/dist/en/styles.2acb051213c9aaefab7a.css"> -->
+    
 
 <!--     <link rel="apple-touch-icon" sizes="57x57" href="assets/avatars/logo.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/avatars/logo.png">
@@ -40,7 +42,6 @@
 </head>
 
 <body>
-
 
 	<div class = "container">
 		@yield('content')

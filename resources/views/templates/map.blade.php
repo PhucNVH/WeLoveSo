@@ -6,7 +6,6 @@
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
 	<link rel="stylesheet" href="{{ asset('css/map.css') }}">
-	<link rel="stylesheet" href="https://cdn-assets.minds.com/front/dist/en/styles.2acb051213c9aaefab7a.css">
 </head>
 <body>
 
@@ -23,7 +22,7 @@
 	@include('templates.partials.navigation')
 	<br><br>
 	@yield('content')
-	@yield('scripts')
+<!-- 	@yield('scripts') -->
 
 
 </body>
