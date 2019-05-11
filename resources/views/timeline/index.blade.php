@@ -7,7 +7,7 @@
                 <minds-card-user class="mdl-card m-border ng-star-inserted" style="margin-bottom:16px;">
                     <div class="m-card--user--banner">
                         <div class="m-card--user--banner--img" style="background-image: url(&quot;https://cdn.minds.com/fs/v1/banners/939229668005912588/fat/1549305802&quot;);"></div>
-                        <div class="minds-banner-overlay"></div>
+                        <div class="minds-banner-overlay"><img src="{{Auth::user()->getCoverUrl()}}" style="width:100%; height:100%;"></div>
                     </div>
                     <a class="mdl-card__supporting-text minds-usercard-block" href="{{route('profile.index', ['username' => Auth::user()->username])}}">
                         <div class="avatar"><img src="{{Auth::user()->getAvatarUrl() }}"></div>

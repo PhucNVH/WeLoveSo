@@ -16,6 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'id',
         'email',
         'username',
         'password',
@@ -24,6 +25,10 @@ class User extends Authenticatable
         'company',
         'first_name',
         'last_name',
+        'avatar',
+        'cover',
+        'Introduce',
+        'IntroImage'
     ];
 
     /**
@@ -60,7 +65,24 @@ class User extends Authenticatable
     }
 
     public function getAvatarUrl(){
-        return "https://www.gravatar.com/avatar/{{ md5($this->username)}} ? d=mm&s=500";
+        if($this->avatar==null) { return "https://www.gravatar.com/avatar/{{ md5($this->username)}} ? d=mm&s=500";}
+        //  
+        else return  $this->avatar;
+    }
+    public function getCoverUrl(){
+        if($this->cover==null) { return "../images/cover.jpg";}
+        //  
+        else return  $this->cover;
+    }
+    public function getIntro(){
+        if($this->Introduce==null) { return "Chưa có gì cả, hãy gì đó đi";}
+        //  
+        else return  $this->Introduce;
+    }
+    public function getIntroImage(){
+        if($this->IntroImage==null) { return "../images/try_hard.jpg";}
+        //  
+        else return  $this->IntroImage;
     }
 
     public function friendsOfMine(){

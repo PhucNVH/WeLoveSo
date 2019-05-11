@@ -80,11 +80,18 @@ Route::get('/{username}' ,[
 	'as'   => 'profile.index',
 ]);
 
+
+Route::post('/profile/intro',[
+	'uses' => '\weloveso\Http\Controllers\ProfileController@postIntro',
+	'as'   => 'profile.intro',
+	'middleware' => ['auth'],
+]);
 Route::get('/profile/edit',[
 	'uses' => '\weloveso\Http\Controllers\ProfileController@getEdit',
 	'as'   => 'profile.edit',
 	'middleware' => ['auth'],
 ]);
+
 
 Route::post('/profile/edit',[
 	'uses' => '\weloveso\Http\Controllers\ProfileController@postEdit',
