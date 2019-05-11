@@ -410,7 +410,7 @@
         }
         
         @media (min-width: 768px) {
-            .md\:bg-left {
+            .md\:bg-left { 
                 background-position: left;
             }
             .md\:bg-right {
@@ -451,7 +451,7 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container" style="background-image: url(https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)!important;  background-repeat: no-repeat;  background-size: 100% 100%;">
 		@yield('content')
 	</div>
 </body>

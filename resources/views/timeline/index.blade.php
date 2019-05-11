@@ -1,7 +1,7 @@
 @extends('templates.homepage')
 
 @section('content')
-<m-body class="mdl-color--grey-100">
+<m-body class="mdl-color--grey-100" style="background-color:red;">
         <div class="mdl-grid m-newsfeed m-page">
             <div class="mdl-cell mdl-cell--4-col m-newsfeed--sidebar">
                 <minds-card-user class="mdl-card m-border ng-star-inserted" style="margin-bottom:16px;">
