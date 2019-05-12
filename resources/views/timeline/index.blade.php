@@ -1,18 +1,33 @@
 @extends('templates.homepage')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style>
+.icon{
+    font-size:18px!important;
+}
+.w3-ul a {
+    text-decoration: none!important;
+}
+#color{
+    color:white!important;
+}
+</style>
 
 @section('content')
 <m-body class="mdl-color--grey-100" style="background-color:red;">
         <div class="mdl-grid m-newsfeed m-page">
             <div class="mdl-cell mdl-cell--4-col m-newsfeed--sidebar">
-                <minds-card-user class="mdl-card m-border ng-star-inserted" style="margin-bottom:16px;">
-                    <div class="m-card--user--banner">
-                        <div class="m-card--user--banner--img" style="background-image: url(&quot;https://cdn.minds.com/fs/v1/banners/939229668005912588/fat/1549305802&quot;);"></div>
-                        <div class="minds-banner-overlay"><img src="{{Auth::user()->getCoverUrl()}}" style="width:100%; height:100%;"></div>
-                    </div>
-                    <a class="mdl-card__supporting-text minds-usercard-block" href="{{route('profile.index', ['username' => Auth::user()->username])}}">
-                        <div class="avatar"><img src="{{Auth::user()->getAvatarUrl() }}"></div>
-                    </a>
-                  </minds-card-user>
+            <ul class="w3-ul w3-hoverable" >
+            
+                <a><li class=" w3-light-blue  w3-hover-blue" id="color" >All<i class="fas fa-globe pull-right icon"></i></li></a>  
+                <a><li class=" w3-light-blue  w3-hover-blue" id="color">Trending<i class="fab fa-hotjar pull-right icon"></i></li></a>
+                <a><li class="w3-light-blue w3-hover-blue" id="color">Ăn Vặt<i class="fas fa-ice-cream pull-right icon"></i></li></a>
+                <a><li class=" w3-light-blue w3-hover-blue" id="color">Ăn Sáng<i class="fas fa-hamburger pull-right icon"></i></li></a>
+                <a><li class=" w3-light-blue w3-hover-blue" id="color">Ăn Nhà<i class="fas fa-home pull-right icon"></i></li></a>
+                <a><li class=" w3-light-blue w3-hover-blue" id="color">Ăn Ngon<i class="material-icons pull-right icon">restaurant_menu</i></li></a>
+                <a><li class=" w3-light-blue w3-hover-blue" id="color">Ăn Nhậu<i class="fas fa-beer pull-right icon"></i></li></a>
+                
+            </ul>
             </div>
 
             <div class="mdl-cell mdl-cell--8-col m-newsfeed--feed">
@@ -38,10 +53,15 @@
                                             <input id="file" name="attachment" type="file">
                                         </div><a class="m-mature-button" title="Mature content"><i class="material-icons">explicit</i><!----></a>
 
-                                        <button class="m-btn m-btn--slim m-btn--with-icon">
-                                            <span>Hashtags</span>
-                                            <i class="material-icons" m-tooltip--anchor="">label</i>
-                                        </button>
+                                        <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Hashtag
+                                        <span class="caret"></span></button>
+                                        <select class="dropdown-menu">
+                                            <option><a href="#">HTML</a></c\>
+                                            <option><a href="#">CSSz</a><s/option>
+                                            <option><a href="#">JavaScript</a></option>
+                                        </select>
+                                        </div>
 
                                         <button class="m-btn m-btn--slim m-btn m-btn--with-icon">
                                             <span>Public</span> 
