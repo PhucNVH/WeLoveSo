@@ -15,12 +15,28 @@ class StatusController extends Controller
 	public function postStatus(Request $request){
 		$this->validate($request,[ 
 			'status' => 'required|max:5000',
+			'post_image' => 'image'
+			
 		]);
 
-		Auth::user()->statuses()->create([
-			'body' => $request->input('status'),
-		]);
-
+		
+		if ($request->hasFile('post_image')) {		
+			$image = $request->file('post_image');
+        	$name = time().'.'.$image->getClientOriginalExtension();
+        	$destinationPath = public_path('user');
+       	 	$image->move($destinationPath, $name);
+			Auth::user()->statuses()->create([
+				'body' => $request->input('status'),
+				'hashtag' => $request->input('hashtag'),
+				'image' 	=>	"..\user".'\\'.$name,
+			]);
+		}
+		else{
+			Auth::user()->statuses()->create([
+				'body' => $request->input('status'),
+				'hashtag' => $request->input('hashtag')
+			]);
+		}
 		return redirect()
 				->route('home');
 				

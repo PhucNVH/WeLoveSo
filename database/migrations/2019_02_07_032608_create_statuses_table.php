@@ -18,6 +18,9 @@ class CreateStatusesTable extends Migration
             $table->integer('user_id');
             $table->integer('parent_id')->nullable();
             $table->text('body');
+            $table->text('image')->nullable();
+            $table->text('hashtag')->nullable();;
+            $table->boolean('isTrending')->default(0);
             $table->timestamps();
         });
     }
